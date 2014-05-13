@@ -16,7 +16,7 @@ public class Storage
     private int iron = 0;
     private int people = 15;
     private int peoplemod = 0;
-    
+                      
     public void Storage()
     {
       
