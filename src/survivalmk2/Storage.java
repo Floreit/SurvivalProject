@@ -16,7 +16,11 @@ public class Storage
     private int iron = 0;
     private int people = 15;
     private int peoplemod = 0;
-                      
+    private double FOOD_MODIFIER = .20;
+    private int SlaveCount = 5;
+    
+    
+    
     public void Storage()
     {
       
@@ -95,7 +99,7 @@ public class Storage
      }
      public void food(int food1, int food2){
          if(food >= 0){
-             food += getQuantity( food1, food2 );
+             food += getQuantity( food1, food2 + getpeople() );
          }
      }
      public void iron(int iron1, int iron2){
@@ -103,7 +107,7 @@ public class Storage
              iron += getQuantity( iron1, iron2 );
          }
      }
-     public void people(){
+     public void people(){         
          if(food >= peoplemod && food >=0){
             peoplemod = people + 1;
             food = food - peoplemod;
@@ -115,12 +119,26 @@ public class Storage
          }
      }
      public void people5(){
-         if(people <= 0){
-             peoplemod = 0;
+         if(people >= 0){
+             people -= 5;
          }
          
-         if ( peoplemod >= 0){
-            people -= 5;
+         if ( peoplemod <= 0){
+            peoplemod = 0;
+         }
+         if (people <= 0){
+             people = 0;
+         }
+     }
+    /**
+      * Buy Slaves providing there is enough food
+      */
+     public void buy_slaves(){
+         Double cost = Math.ceil( FOOD_MODIFIER * people );         
+         if( food > cost ){
+             food -= cost.intValue();
+             people+= SlaveCount;
+             peoplemod = cost.intValue();
          }
      }
      
