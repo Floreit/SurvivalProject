@@ -78,71 +78,49 @@ public class Storage
      
      
      
+     private int getQuantity(int int1, int int2 ){
+         return int1 + (int)(Math.random() * (int2 - int1) );
+     }
      
      
-     
-     public void wood(int wood1, int wood2)
-     {         
-        int tempwood = 0;
-        if(wood >= 0)
-        {
-        tempwood = wood1 + (int)(Math.random() * ((wood2 - wood1)));
-        wood = wood + tempwood;                          
+     public void wood(int wood1, int wood2){
+        if(wood >= 0){
+            wood += getQuantity(wood1, wood2);
         }
      }
-     public void stone(int stone1, int stone2)
-     {
-        int tempstone = 0; 
-        if(stone >= 0)
-        {
-        tempstone = stone1 + (int)(Math.random() * ((stone2 - stone1)));
-        stone = stone + tempstone;        
+     public void stone(int stone1, int stone2){
+        if(stone >= 0){
+            stone += getQuantity(stone1, stone2);
         }
      }
-     public void food(int food1, int food2)
-     {
-         int tempfood = 0;         
-         if(food >= 0)
-         {
-         tempfood = food1 + (int)(Math.random() * ((food2 - food1)));
-         food = food + tempfood;       
+     public void food(int food1, int food2){
+         if(food >= 0){
+             food += getQuantity( food1, food2 );
          }
      }
-     public void iron(int iron1, int iron2)
-     {
-         int tempiron = 0;
-         if(iron >= 0)
-         {
-         tempiron = iron1 + (int)(Math.random() * ((iron2 - iron1)));
-         iron = iron + tempiron;
+     public void iron(int iron1, int iron2){
+         if(iron >= 0){
+             iron += getQuantity( iron1, iron2 );
          }
      }
-     public void people()
-     {
-         if(food >= peoplemod && food >=0)
-         {
-         peoplemod = people + 1;
-         food = food - peoplemod;
-         people = people + 1;
-         }
-         if(food <= 0)
-         {
+     public void people(){
+         if(food >= peoplemod && food >=0){
+            peoplemod = people + 1;
+            food = food - peoplemod;
+            people++;
+         }else if(food <= 0){
              food = 0;
-         }
-         if(peoplemod <= 0)
-         {
+         }else if(peoplemod <= 0){
              peoplemod = 0;
          }
      }
-     public void people5()
-     {
-         if(people <= 0)
-         {
+     public void people5(){
+         if(people <= 0){
              peoplemod = 0;
          }
-         if ( peoplemod >= 0)
-         {
-         people = people - 5;
+         
+         if ( peoplemod >= 0){
+            people -= 5;
          }
      }
      
