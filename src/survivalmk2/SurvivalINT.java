@@ -3,7 +3,10 @@
  * and open the template in the editor.
  */
 package survivalmk2;
-
+//------------------------------------------------------------------------------
+//--------------Experiment with later commands----------------------------------
+// PlainsB.setEnabled(false);
+//PlainsB.setEnabled(false);
 /**
  *
  * @author Floreit
@@ -113,7 +116,7 @@ public class SurvivalINT extends javax.swing.JFrame
 
         jLabel4.setText("People");
 
-        PeopleLabel.setText("1");
+        PeopleLabel.setText("15");
 
         PeoplemodB.setText("ShowPeopleMod");
         PeoplemodB.addActionListener(new java.awt.event.ActionListener()
@@ -220,12 +223,13 @@ public class SurvivalINT extends javax.swing.JFrame
 
     private void PlainsBActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PlainsBActionPerformed
     {//GEN-HEADEREND:event_PlainsBActionPerformed
-       
-        bank.food(1, bank.getpeople());
-        bank.people5();
-        FoodLabel.setText("" + bank.getfood() );
-        PeopleLabel.setText("" + bank.getpeople());
-        
+//      
+        if( bank.getpeople() >= 5 ){
+            bank.food(1,11);
+            bank.people5();
+            FoodLabel.setText("" + bank.getfood() );
+            PeopleLabel.setText("" + bank.getpeople());
+       }
     }//GEN-LAST:event_PlainsBActionPerformed
 
     private void ForestBActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ForestBActionPerformed
@@ -256,7 +260,8 @@ public class SurvivalINT extends javax.swing.JFrame
 
     private void PeopleBActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PeopleBActionPerformed
     {//GEN-HEADEREND:event_PeopleBActionPerformed
-        bank.people();
+        //bank.people();
+        bank.buy_slaves();
         PeopleLabel.setText("" + bank.getpeople());
         FoodLabel.setText("" + bank.getfood());
     }//GEN-LAST:event_PeopleBActionPerformed
